@@ -18,7 +18,7 @@ class VerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorResources.getWhiteAndBlack(),
-      appBar: CustomAppbar(title: 'phone_verification'.tr, onTap:() {
+      appBar: CustomAppbar(title: 'phone_verificationn'.tr, onTap:() {
         Get.find<VerificationController>().cancelTimer();
         Get.back();
       // Get.toNamed(RouteHelper.getChoseLoginRegRoute());
@@ -44,7 +44,7 @@ class VerificationScreen extends StatelessWidget {
                     );
                   }),
 
-                  DemoOtpHint(),
+                 // DemoOtpHint(),
 
                   const SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_LARGE,),
                   TimerSection(),

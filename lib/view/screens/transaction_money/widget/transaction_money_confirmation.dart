@@ -105,7 +105,7 @@ class TransactionMoneyConfirmation extends StatelessWidget {
                                                   }
                                                 });
                                               }),
-                                              DemoOtpHint(),
+                                             // DemoOtpHint(),
                                               GetBuilder<AuthController>(builder: (verifyController){
                                                 return verifyController.isVerifying ? CircularProgressIndicator(color: ColorResources.getPrimaryTextColor()) : SizedBox.shrink();
                                               })

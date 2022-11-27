@@ -123,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Column(children: [
                     if(((splashController.configModel.companyEmail != null) || (splashController.configModel.companyPhone != null)))
                       CustomInkWell( child: widget.MenuItem(image: Images.support_logo,title: '24_support'.tr), onTap: () => Get.toNamed(RouteHelper.getSupportRoute())),
-                  CustomInkWell(child: widget.MenuItem(image: Images.question_logo, title: 'faq'.tr),onTap:()=> Get.toNamed(RouteHelper.faq))
+                 // CustomInkWell(child: widget.MenuItem(image: Images.question_logo, title: 'faq'.tr),onTap:()=> Get.toNamed(RouteHelper.faq))
                   ],
                 ),
 

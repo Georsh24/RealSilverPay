@@ -12,6 +12,9 @@ import 'package:six_cash/view/screens/home/widget/banner_view.dart';
 import 'package:six_cash/view/screens/home/widget/custom_card.dart';
 import 'package:six_cash/view/screens/transaction_money/transaction_money_screen.dart';
 import 'package:six_cash/view/screens/transaction_money/widget/transaction_money_balance_input.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse('https://www.youtube.com/channel/UCTMyFzMEhirw8ViHzmNNU4A');
 
 class FirstCardPortion extends StatelessWidget {
   final ProfileController profileController;
@@ -60,21 +63,21 @@ class FirstCardPortion extends StatelessWidget {
                         ),
 
 
-                        child: CustomInkWell(
-                          onTap: () => Get.to(TransactionMoneyBalanceInput(transactionType: 'add_money')),
-                          radius: Dimensions.RADIUS_SIZE_LARGE,
-                          child: Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_LARGE),
-                            child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                        // child: CustomInkWell(
+                        //   onTap: () => Get.to(TransactionMoneyBalanceInput(transactionType: 'add_money')),
+                        //   radius: Dimensions.RADIUS_SIZE_LARGE,
+                        //   child: Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_LARGE),
+                        //     child: Column(mainAxisAlignment: MainAxisAlignment.center,
 
-                              children: [
-                                SizedBox(height: 34, child: Image.asset(Images.wolet_logo)),
-                                SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_SMALL,),
-                                Text('add_money'.tr, style: rubikRegular.copyWith(fontSize: Dimensions.FONT_SIZE_DEFAULT, color: Theme.of(context).textTheme.bodyText1.color),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
+                        //       children: [
+                        //         SizedBox(height: 34, child: Image.asset(Images.wolet_logo)),
+                        //         SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_SMALL,),
+                        //         Text('add_money'.tr, style: rubikRegular.copyWith(fontSize: Dimensions.FONT_SIZE_DEFAULT, color: Theme.of(context).textTheme.bodyText1.color),
+                        //         )
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                       ),
                     ],
                   ),
@@ -89,12 +92,20 @@ class FirstCardPortion extends StatelessWidget {
                       children: [
                         Expanded(child: CustomCard(image: Images.sendMoney_logo, text: 'send_money_'.tr, color: Theme.of(context).secondaryHeaderColor, onTap: ()=> Get.to(()=> TransactionMoneyScreen(fromEdit: false,transactionType: 'send_money')))),
 
-                        Expanded(child: CustomCard(image: Images.cashOut_logo, text: 'cash_out_'.tr, color: ColorResources.getCashOutCardColor(), onTap: ()=> Get.to(()=> TransactionMoneyScreen(fromEdit: false,transactionType: 'cash_out')))),
-
+                    
                         Expanded(child: CustomCard(image: Images.requestMoneyLogo, text: 'request_money'.tr, color: ColorResources.getRequestMoneyCardColor(), onTap: ()=> Get.to(()=> TransactionMoneyScreen(fromEdit: false,transactionType: 'request_money')))),
 
                         Expanded(child: CustomCard(image: Images.request_list_image2, text: 'requests'.tr, color: ColorResources.getReferFriendCardColor(), onTap: () => Get.toNamed(RouteHelper.getRequestedMoneyRoute(from: 'other'))),
                         ),
+
+                        //     Expanded(child: CustomCard(image: Images.cashOut_logo, text: 'cash_out_'.tr, color: ColorResources.getCashOutCardColor(), onTap: (() {
+                        //   _launchUrl();
+                        // }))),
+                            Expanded(child: CustomCard(image: Images.cashOut_logo, text: 'Como funciona?'.tr, color: ColorResources.getCashOutCardColor(), onTap: (() {
+                          _launchUrl();
+                        }))),
+
+
                       ],
                     ),
                   ),
@@ -112,4 +123,11 @@ class FirstCardPortion extends StatelessWidget {
     );
   }
 
+  
+
+}
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
+  }
 }

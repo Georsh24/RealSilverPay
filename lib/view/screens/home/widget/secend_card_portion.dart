@@ -53,14 +53,14 @@ class SecondCardPortion extends StatelessWidget {
                             },
                           ),
                         ),
-                         Expanded(
-                          child: CustomCard(
-                            image: Images.wolet_logo,
-                            text: 'Add Money'.tr,
-                            color: ColorResources.getAddMoneyCardColor(),
-                            onTap: () => Get.to(TransactionMoneyBalanceInput(transactionType: 'add_money')),
-                          ),
-                        ),
+                      Expanded(
+                      child: CustomCard(
+                        image: Images.wolet_logo,
+                        text: 'Add Money'.tr,
+                        color: ColorResources.getAddMoneyCardColor(),
+                        onTap: () => Get.to(TransactionMoneyBalanceInput(transactionType: 'add_money')),
+                      ),
+                    ),
                         
                     ],
                   ),

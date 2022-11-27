@@ -1,7 +1,7 @@
 name: six_cash
-description: A new Flutter application.
+description: RSCO
 publish_to: 'none' #
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -61,6 +61,7 @@ dependencies:
   flutter_secure_storage: ^5.0.2
   app_settings: ^4.1.8
   percent_indicator: ^4.2.2
+  url_launcher: ^6.1.6
 
 
 dev_dependencies:

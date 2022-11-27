@@ -3,13 +3,13 @@ import 'package:get/get.dart';
 
 class ColorResources {
   static  Color getPrimaryColor() {
-    return Get.isDarkMode ? Color(0xFF002931) : Color(0xFF003E47);
+    return Get.isDarkMode ? Color(0xFF002931) : Color(0xFFcca365);
   }
   static  Color getPrimaryTextColor() {
     return Get.isDarkMode ? Color(0xFF8dbac3) : Color(0xFF003E47);
   }
   static Color getSecondaryHeaderColor() {
-    return Get.isDarkMode ? Color(0xFFaaa818) : Color(0xFFCFEC7E);
+    return Get.isDarkMode ? Color(0xFFaaa818) : Color(0xFFfbdf7a);
   }
   static Color getGreyColor() {
     return Get.isDarkMode ? Color(0xFF6f7275) : Color(0xFFA0A4A8);

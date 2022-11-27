@@ -44,7 +44,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       ),
                       const SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_LARGE),
 
-                      DemoOtpHint(),
+                    // DemoOtpHint(),
                     ],
                   ),
                 ),

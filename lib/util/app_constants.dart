@@ -9,10 +9,10 @@ class AppConstants {
   //demo
 
 
-  static const String BASE_URL = 'http://10.0.2.2/admin';
+  static const String BASE_URL = 'http://migracionrsco.com';
   // //fun
   //static const String BASE_URL = 'admin.test';
-  static const bool DEMO = true;
+  static const bool DEMO = false;
    static const double APP_VERSION = 1.2;
 
   static const String CUSTOMER_PHONE_CHECK_URI = '/api/v1/customer/auth/check-phone';
@@ -101,6 +101,7 @@ class AppConstants {
   static const int BALANCE_INPUT_LEN = 10;
 
   static List<LanguageModel> languages = [
+         LanguageModel(imageUrl: Images.espanol, languageName: 'Español', countryCode: 'MXN', languageCode: 'esp'),
     LanguageModel(imageUrl: Images.english, languageName: 'English', countryCode: 'US', languageCode: 'en'),
     LanguageModel(imageUrl: Images.saudi, languageName: 'Arabic', countryCode: 'SA', languageCode: 'ar'),
 

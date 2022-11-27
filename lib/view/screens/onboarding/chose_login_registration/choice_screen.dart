@@ -8,10 +8,12 @@ import 'package:six_cash/util/dimensions.dart';
 import 'package:six_cash/util/styles.dart';
 import 'package:six_cash/view/base/custom_small_button.dart';
 import 'package:six_cash/view/screens/onboarding/chose_login_registration/widget/indicator_section.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../../base/custom_large_button.dart';
 
 class ChoiceScreen extends StatelessWidget {
   ChoiceScreen({Key key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,66 +38,126 @@ class ChoiceScreen extends StatelessWidget {
                         return Container(
                           child: Column(
                             children: [
-                            Container(
-                              height: size.width,
-                              width: size.width,
-                              child: Stack(
-                                children: [
-                                  SizedBox(width: double.infinity,child: Image.asset(AppConstants.onboardList[index].backgroundImage,fit: BoxFit.fitWidth,)),
-                                  Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: SizedBox(
-                                        height: MediaQuery.of(context).size.width * 0.6,
-                                        child: Image.asset(AppConstants.onboardList[index].image, fit: BoxFit.fitHeight))
-                                  )
-                                ],
+                              Container(
+                                height: size.width,
+                                width: size.width,
+                                child: Stack(
+                                  children: [
+                                    SizedBox(
+                                        width: double.infinity,
+                                        child: Image.asset(
+                                          AppConstants.onboardList[index]
+                                              .backgroundImage,
+                                          fit: BoxFit.fitWidth,
+                                        )),
+                                    Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.6,
+                                            child: Image.asset(
+                                                AppConstants
+                                                    .onboardList[index].image,
+                                                fit: BoxFit.fitHeight)))
+                                  ],
+                                ),
                               ),
-                            ),
                               Spacer(),
                               // const SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
                               // CustomLogo(height: Dimensions.MEDIUM_LOGO, width: Dimensions.MEDIUM_LOGO,),
                               // SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal:
+                                        Dimensions.PADDING_SIZE_DEFAULT),
                                 child: Column(
                                   children: [
-                                    Text(AppConstants.onboardList[index].title, style: rubikSemiBold.copyWith(color: ColorResources.getBlackColor(), fontSize: Dimensions.FONT_SIZE_EXTRA_LARGE,), textAlign: TextAlign.center,),
-                                    const SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT,),
+                                    Text(
+                                      AppConstants.onboardList[index].title,
+                                      style: rubikSemiBold.copyWith(
+                                        color: ColorResources.getBlackColor(),
+                                        fontSize:
+                                            Dimensions.FONT_SIZE_EXTRA_LARGE,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    const SizedBox(
+                                      height: Dimensions.PADDING_SIZE_DEFAULT,
+                                    ),
                                     Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: Dimensions.RADIUS_SIZE_SMALL),
-                                      child: Text(AppConstants.onboardList[index].subtitle, maxLines: 2,overflow: TextOverflow.ellipsis, style: rubikMedium.copyWith(color: ColorResources.getOnboardGreyColor(), fontSize: Dimensions.FONT_SIZE_LARGE,), textAlign: TextAlign.center,
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal:
+                                              Dimensions.RADIUS_SIZE_SMALL),
+                                      child: Text(
+                                        AppConstants
+                                            .onboardList[index].subtitle,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: rubikMedium.copyWith(
+                                          color: ColorResources
+                                              .getOnboardGreyColor(),
+                                          fontSize: Dimensions.FONT_SIZE_LARGE,
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              const SizedBox(height: Dimensions.PADDING_SIZE_OVER_LARGE),
+                              const SizedBox(
+                                  height: Dimensions.PADDING_SIZE_OVER_LARGE),
                             ],
                           ),
                         );
                       }),
                 ),
-
                 IndicatorSection(),
                 const SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT),
-
               ],
             ),
-
           ),
           Container(
-            padding: const EdgeInsets.only(left: Dimensions.PADDING_SIZE_DEFAULT, right: Dimensions.PADDING_SIZE_DEFAULT, bottom: Dimensions.PADDING_SIZE_EXTRA_EXTRA_LARGE),
-            child: Row(
+            padding: const EdgeInsets.only(
+                left: Dimensions.PADDING_SIZE_DEFAULT,
+                right: Dimensions.PADDING_SIZE_DEFAULT,
+                bottom: Dimensions.PADDING_SIZE_EXTRA_EXTRA_LARGE),
+            child: Column(
               children: [
-                Expanded(
-                  child: CustomSmallButton(
-                    onTap: () => Get.toNamed(RouteHelper.getRegistrationRoute()),
-                    backgroundColor: Theme.of(context).secondaryHeaderColor,
-                    text: 'login_registration'.tr,
-                    textColor: ColorResources.getBlackColor(),
-                  ),
-
-                ),
+                  Container(
+                      //color: Color.fromRGBO(244, 67, 54, 1),
+                      height: 60,
+                      child: CustomLargeButton(
+                            bottomPadding: 0,
+                              backgroundColor:
+                                  Theme.of(context).secondaryHeaderColor,
+                              text: 'login_registration'.tr,
+                              onTap: () async {
+                                  Get.toNamed(RouteHelper.getRegistrationRoute());
+                          
+                              },
+                            )
+                      
+                    ),
+                  //  CustomSmallButton(
+                  //   onTap: () =>
+                  //       Get.toNamed(RouteHelper.getRegistrationRoute()),
+                  //   backgroundColor: Theme.of(context).secondaryHeaderColor,
+                  //   text: 'login_registration'.tr,
+                  //   textColor: ColorResources.getBlackColor(),
+                  // ),
+                
+                InkWell(
+                      onTap: () => launchUrl(Uri.parse(
+                          'https://realsilvercoin.io/politicadeprivacidad.html')),
+                      child: Text(
+                        'Políticas de Privacidad >',
+                        style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.blue),
+                      ),
+                    )
               ],
             ),
           )
