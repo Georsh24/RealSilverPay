@@ -69,11 +69,11 @@ class _TransactionMoneyBalanceInputState extends State<TransactionMoneyBalanceIn
                                       AppConstants.BALANCE_INPUT_LEN + (AppConstants.BALANCE_INPUT_LEN / 3).floor() + Get.find<SplashController>().configModel.currencySymbol.length :
                                       AppConstants.BALANCE_INPUT_LEN + (AppConstants.BALANCE_INPUT_LEN / 3).ceil() + Get.find<SplashController>().configModel.currencySymbol.length,
                                     ),
-                                    CurrencyTextInputFormatter(
-                                      locale: Get.find<SplashController>().configModel.currencyPosition == 'left' ? 'en' : 'fr',
-                                      decimalDigits: 0,
-                                      symbol: '${Get.find<SplashController>().configModel.currencySymbol}',
-                                    ),
+                                    // CurrencyTextInputFormatter(
+                                    //   locale: Get.find<SplashController>().configModel.currencyPosition == 'left' ? 'en' : 'fr',
+                                    //   decimalDigits: 0,
+                                    //   symbol: '${Get.find<SplashController>().configModel.currencySymbol}',
+                                    // ),
                                   ],
                                     keyboardType: TextInputType.numberWithOptions(decimal: true),
                                     controller: _inputAmountController,
@@ -103,17 +103,17 @@ class _TransactionMoneyBalanceInputState extends State<TransactionMoneyBalanceIn
                             ),
                           ),
 
-                          widget.transactionType !='cash_out' && widget.transactionType !='add_money'? localizationController.isLtr ?
-                          Positioned(
-                            left: Dimensions.PADDING_SIZE_LARGE, bottom: Dimensions.PADDING_SIZE_EXTRA_LARGE,
-                            child: CustomImage(image:'${splashController.configModel.baseUrls.purposeImageUrl}/${controller.purposeList.isEmpty ? Purpose().logo : controller.purposeList[controller.selectedItem].logo}',
-                              height: 50, width: 50, fit: BoxFit.cover),
-                          ) : Positioned(
-                            right: Dimensions.PADDING_SIZE_LARGE, bottom: Dimensions.PADDING_SIZE_EXTRA_LARGE,
-                            child:
-                            CustomImage(image:'${splashController.configModel.baseUrls.purposeImageUrl}/${controller.purposeList.isEmpty ? Purpose().logo : controller.purposeList[controller.selectedItem].logo}',
-                              height: 50, width: 50, fit: BoxFit.cover),
-                          ) : SizedBox(),
+                          // widget.transactionType !='cash_out' && widget.transactionType !='add_money'? localizationController.isLtr ?
+                          // Positioned(
+                          //   left: Dimensions.PADDING_SIZE_LARGE, bottom: Dimensions.PADDING_SIZE_EXTRA_LARGE,
+                          //   child: CustomImage(image:'${splashController.configModel.baseUrls.purposeImageUrl}/${controller.purposeList.isEmpty ? Purpose().logo : controller.purposeList[controller.selectedItem].logo}',
+                          //     height: 50, width: 50, fit: BoxFit.cover),
+                          // ) : Positioned(
+                          //   right: Dimensions.PADDING_SIZE_LARGE, bottom: Dimensions.PADDING_SIZE_EXTRA_LARGE,
+                          //   child:
+                          //   CustomImage(image:'${splashController.configModel.baseUrls.purposeImageUrl}/${controller.purposeList.isEmpty ? Purpose().logo : controller.purposeList[controller.selectedItem].logo}',
+                          //     height: 50, width: 50, fit: BoxFit.cover),
+                          // ) : SizedBox(),
 
 
                           widget.transactionType !='cash_out' && widget.transactionType !='add_money'? localizationController.isLtr ?

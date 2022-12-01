@@ -129,7 +129,7 @@ class UserInfo extends StatelessWidget {
                   child: Container(
                     child: Text(
                       'kyc_verification_is_not'.tr,
-                      overflow: TextOverflow.ellipsis,
+                      overflow: TextOverflow.ellipsis ,
                       style: rubikRegular.copyWith(
                           color: Theme.of(context).errorColor),
                     ),
